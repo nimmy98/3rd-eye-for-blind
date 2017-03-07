@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Gridview</string>
+    <string-array name="name">
+    <item>Call</item>
+    <item>Message</item>
+    <item>Contact</item>
+    <item>Music</item>
+    <item>Alarm</item>
+    <item>Recorder</item>
+    <item>Settings</item>
+    <item>Status</item>
+    </string-array>
+    <string-array name="call">
+        <item>call1</item>
+        <item>make_call</item>
+        <item>delete_call</item>
+        <item>back</item>
+    </string-array>
+</resources>
