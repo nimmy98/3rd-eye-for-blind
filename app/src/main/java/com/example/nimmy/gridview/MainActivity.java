@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         String name[] = getResources().getStringArray(R.array.name);
         GridView gridView = (GridView)findViewById(R.id.activity_main);
-        ImageAdapter dataAdapter = new ImageAdapter(MainActivity.this);
+        MainAdapter dataAdapter = new MainAdapter(MainActivity.this);
         gridView.setAdapter(dataAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

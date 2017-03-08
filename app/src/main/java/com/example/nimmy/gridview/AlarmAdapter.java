@@ -12,29 +12,27 @@ import android.widget.TextView;
  * Created by Nimmy on 26-01-2017.
  */
 
-   public class ImageAdapter4 extends BaseAdapter {
+ public class AlarmAdapter extends BaseAdapter {
 
     private Context con;
 
-    int music[] = new int[]{
-            R.drawable.now_play,R.drawable.play,
-            R.drawable.pre_track,R.drawable.next_track,
-            R.drawable.low_vol,R.drawable.high_vol,
-            R.drawable.artist,R.drawable.back_arrow,
+    int alarm[] = new int[]{
+            R.drawable.create_alarm,
+            R.drawable.alarmlist,
+            R.drawable.back_arrow,
     };
     String name[] = new String[]{
-            "Now_play","Play",
-            "Pre_track","Next_track",
-            "Low_volume","High_volume",
-            "Artist","Back",
+            "Create_alarm",
+            "Alarm_List",
+            "Back",
     };
-    public ImageAdapter4(Context c) {
+    public AlarmAdapter(Context c) {
         con = c;
     }
 
     @Override
     public int getCount() {
-        return  music.length;
+        return alarm.length;
     }
 
     @Override
@@ -53,19 +51,19 @@ import android.widget.TextView;
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageAdapter.ViewHolder holder;
+        MainAdapter.ViewHolder holder;
         if (convertView == null) {
-            holder = new ImageAdapter.ViewHolder();
+            holder = new MainAdapter.ViewHolder();
             convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
             holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
             holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
             convertView.setTag(holder);
         }
         else{
-            holder = (ImageAdapter.ViewHolder)convertView.getTag();
+            holder = (MainAdapter   .ViewHolder)convertView.getTag();
         }
         holder.iconImage.setPadding(3,3,3, 3);
-        holder.iconImage.setImageResource(music[position]);
+        holder.iconImage.setImageResource(alarm[position]);
         holder.categoryText.setText(name[position]);
         return convertView;
     }

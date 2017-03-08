@@ -22,44 +22,44 @@ public class MainActivity2 extends AppCompatActivity {
         if(position == 0){
             GridView gridView = (GridView)findViewById(R.id.activity_main2);
             //int call[] = getResources().getIntArray(R.array.call);
-            ImageAdapter1 dataAdapter = new ImageAdapter1(this);
+            CallAdapter dataAdapter = new CallAdapter(this);
             gridView.setAdapter(dataAdapter);
-           // Toast.makeText(this,"position"+position,Toast.LENGTH_LONG).show();
         }
         if(position == 1) {
             GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter2 dataAdapter = new ImageAdapter2(this);
+            MsgAdapter dataAdapter = new MsgAdapter(this);
             gridView.setAdapter(dataAdapter);
         }
         if(position == 2) {
             GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter3 dataAdapter = new ImageAdapter3(this);
+            ContactAdapter dataAdapter = new ContactAdapter(this);
             gridView.setAdapter(dataAdapter);
         }
         if(position == 3) {
             GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter4 dataAdapter = new ImageAdapter4(this);
+            MusicAdapter dataAdapter = new MusicAdapter(this);
             gridView.setAdapter(dataAdapter);
         }
         if(position == 4) {
             GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter5 dataAdapter = new ImageAdapter5(this);
+            AlarmAdapter dataAdapter = new AlarmAdapter(this);
             gridView.setAdapter(dataAdapter);
         }
         if(position == 5) {
             GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter6 dataAdapter = new ImageAdapter6(this);
+            RecordAdapter dataAdapter = new RecordAdapter(this);
             gridView.setAdapter(dataAdapter);
         }
         if(position == 6) {
             GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter7 dataAdapter = new ImageAdapter7(this);
+            SettingsAdapter dataAdapter = new SettingsAdapter(this);
             gridView.setAdapter(dataAdapter);
         }
-        if(position == 7) {
-            GridView gridView = (GridView) findViewById(R.id.activity_main2);
-            ImageAdapter8 dataAdapter = new ImageAdapter8(this);
-            gridView.setAdapter(dataAdapter);
-        }
+//        if(position == 7) {
+//            GridView gridView = (GridView) findViewById(R.id.activity_main2);
+//             StatusAdapter    dataAdapter = new StatusAdapter(this);
+////            gridView.setAdapter(dataAdapter);
+//        }
+
     }
 }

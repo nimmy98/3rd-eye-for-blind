@@ -12,27 +12,35 @@ import android.widget.TextView;
  * Created by Nimmy on 26-01-2017.
  */
 
- public class ImageAdapter5 extends BaseAdapter {
+ public class SettingsAdapter extends BaseAdapter {
 
     private Context con;
 
-    int alarm[] = new int[]{
-            R.drawable.create_alarm,
-            R.drawable.alarmlist,
-            R.drawable.back_arrow,
+    int setting[] = new int[]{
+            R.drawable.readind_speed,
+            R.drawable.alaram,
+            R.drawable.call_tone,
+            R.drawable.wifi,
+            R.drawable.screen_timeout,
+            R.drawable.system_settings,
+            R.drawable.back_arrow
     };
     String name[] = new String[]{
-            "Create_alarm",
-            "Alarm_List",
-            "Back",
+            "Reading_spped",
+            "Alarm_tone",
+            "Call_tone",
+            "WiFi",
+            "Scrren_timeout",
+            "System_Settings",
+            "Back"
     };
-    public ImageAdapter5(Context c) {
+    public SettingsAdapter(Context c) {
         con = c;
     }
 
     @Override
     public int getCount() {
-        return alarm.length;
+        return setting.length;
     }
 
     @Override
@@ -49,21 +57,22 @@ import android.widget.TextView;
         TextView categoryText;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageAdapter.ViewHolder holder;
+        MainAdapter.ViewHolder holder;
         if (convertView == null) {
-            holder = new ImageAdapter.ViewHolder();
+            holder = new MainAdapter.ViewHolder();
             convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
             holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
             holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
             convertView.setTag(holder);
         }
         else{
-            holder = (ImageAdapter.ViewHolder)convertView.getTag();
+            holder = (MainAdapter.ViewHolder)convertView.getTag();
         }
         holder.iconImage.setPadding(3,3,3, 3);
-        holder.iconImage.setImageResource(alarm[position]);
+        holder.iconImage.setImageResource(setting[position]);
         holder.categoryText.setText(name[position]);
         return convertView;
     }

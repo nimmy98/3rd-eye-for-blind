@@ -12,7 +12,7 @@ import android.widget.TextView;
  * Created by Nimmy on 18-01-2017.
  */
 
-public class ImageAdapter2 extends BaseAdapter {
+public class MsgAdapter extends BaseAdapter {
 
     private Context con;
 
@@ -28,7 +28,7 @@ public class ImageAdapter2 extends BaseAdapter {
             "Back",
 
     };
-    public ImageAdapter2(Context c) {
+    public MsgAdapter(Context c) {
         con = c;
     }
 
@@ -53,16 +53,16 @@ public class ImageAdapter2 extends BaseAdapter {
 
         @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-            ImageAdapter.ViewHolder holder;
+            MainAdapter.ViewHolder holder;
             if (convertView == null) {
-                holder = new ImageAdapter.ViewHolder();
+                holder = new MainAdapter.ViewHolder();
                 convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
                 holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
                 holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
                 convertView.setTag(holder);
             }
             else{
-                holder = (ImageAdapter.ViewHolder)convertView.getTag();
+                holder = (MainAdapter.ViewHolder)convertView.getTag();
             }
             holder.iconImage.setPadding(3,3,3, 3);
             holder.iconImage.setImageResource(msg[position]);

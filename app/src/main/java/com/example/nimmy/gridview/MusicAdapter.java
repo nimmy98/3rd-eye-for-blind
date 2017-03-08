@@ -1,7 +1,6 @@
 package com.example.nimmy.gridview;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,34 +9,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by Nimmy on 18-01-2017.
+ * Created by Nimmy on 26-01-2017.
  */
 
-public class ImageAdapter1 extends BaseAdapter{
+   public class MusicAdapter extends BaseAdapter {
+
     private Context con;
 
-    int call[] = new int[]{
-            R.drawable.call1,
-            R.drawable.make_call,
-            R.drawable.delete_call,
-            R.drawable.back_arrow,
+    int music[] = new int[]{
+            R.drawable.now_play,R.drawable.play,
+            R.drawable.pre_track,R.drawable.next_track,
+            R.drawable.low_vol,R.drawable.high_vol,
+            R.drawable.artist,R.drawable.back_arrow,
     };
-
     String name[] = new String[]{
-            "Create_call",
-            "Make_call",
-            "Delete_call",
-            "Back",
-
+            "Now_play","Play",
+            "Pre_track","Next_track",
+            "Low_volume","High_volume",
+            "Artist","Back",
     };
-    public ImageAdapter1(Context c) {
+    public MusicAdapter(Context c) {
         con = c;
     }
 
-
     @Override
     public int getCount() {
-        return call.length;
+        return  music.length;
     }
 
     @Override
@@ -49,27 +46,26 @@ public class ImageAdapter1 extends BaseAdapter{
     public long getItemId(int position) {
         return 0;
     }
-        static class ViewHolder{
-            ImageView iconImage;
-            TextView categoryText;
-
+    static class ViewHolder {
+        ImageView iconImage;
+        TextView categoryText;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageAdapter.ViewHolder holder;
+        MainAdapter.ViewHolder holder;
         if (convertView == null) {
-            holder = new ImageAdapter.ViewHolder();
+            holder = new MainAdapter.ViewHolder();
             convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
             holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
             holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
             convertView.setTag(holder);
         }
         else{
-            holder = (ImageAdapter.ViewHolder)convertView.getTag();
+            holder = (MainAdapter.ViewHolder)convertView.getTag();
         }
         holder.iconImage.setPadding(3,3,3, 3);
-        holder.iconImage.setImageResource(call[position]);
+        holder.iconImage.setImageResource(music[position]);
         holder.categoryText.setText(name[position]);
         return convertView;
     }

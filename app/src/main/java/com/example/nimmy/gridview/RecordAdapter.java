@@ -12,31 +12,27 @@ import android.widget.TextView;
  * Created by Nimmy on 26-01-2017.
  */
 
- public class ImageAdapter7 extends BaseAdapter {
+ public class RecordAdapter extends BaseAdapter {
 
     private Context con;
 
-    int setting[] = new int[]{
-            R.drawable.readind_speed,
-            R.drawable.alaram,
-            R.drawable.call_tone,
-            R.drawable.wifi,
-            R.drawable.screen_timeout,
+    int recorder[] = new int[]{
+            R.drawable.create_recorder,
+            R.drawable.recorder_list,
+            R.drawable.back_arrow,
     };
     String name[] = new String[]{
-            "Reading_spped",
-            "Alaram",
-            "Call_tone",
-            "WiFi",
-            "Scrren_timeout",
+            "Create_Recorder",
+            "Recorder_List",
+            "Back",
     };
-    public ImageAdapter7(Context c) {
+    public RecordAdapter(Context c) {
         con = c;
     }
 
     @Override
     public int getCount() {
-        return setting.length;
+        return recorder.length;
     }
 
     @Override
@@ -53,22 +49,21 @@ import android.widget.TextView;
         TextView categoryText;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageAdapter.ViewHolder holder;
+        MainAdapter.ViewHolder holder;
         if (convertView == null) {
-            holder = new ImageAdapter.ViewHolder();
+            holder = new MainAdapter.ViewHolder();
             convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
             holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
             holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
             convertView.setTag(holder);
         }
         else{
-            holder = (ImageAdapter.ViewHolder)convertView.getTag();
+            holder = (MainAdapter.ViewHolder)convertView.getTag();
         }
         holder.iconImage.setPadding(3,3,3, 3);
-        holder.iconImage.setImageResource(setting[position]);
+        holder.iconImage.setImageResource(recorder[position]);
         holder.categoryText.setText(name[position]);
         return convertView;
     }

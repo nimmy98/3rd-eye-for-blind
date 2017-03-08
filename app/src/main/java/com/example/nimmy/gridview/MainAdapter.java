@@ -5,36 +5,47 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by Nimmy on 18-01-2017.
+ * Created by Nimmy on 03-01-2017.
  */
 
-public class ImageAdapter3 extends BaseAdapter {
+public class MainAdapter extends BaseAdapter {
+    private  Context con;
+    int menu[] = new int[]{
+            R.drawable.call , R.drawable.msg,
+            R.drawable.contact , R.drawable.music,
+            R.drawable.alaram , R.drawable.recorder,
+            R.drawable.settings , R.drawable.status,
 
-    private Context con;
-
-    int contact[] = new int[]{
-            R.drawable.con1,
-            R.drawable.create_con,
-            R.drawable.back_arrow,
     };
 
     String name[] = new String[]{
-            "Contact_list",
-            "Create_contact",
-            "Back",
-
+            "Call",
+            "Message",
+            "Contact",
+            "Music",
+            "Alarm",
+            "Recorder",
+            "Settings",
+            "Status"
     };
-    public ImageAdapter3(Context c) {
+
+    public MainAdapter(Context c) {
         con = c;
     }
 
+    public MainAdapter() {
+
+    }
+
+
     @Override
     public int getCount() {
-        return contact.length;
+        return menu.length;
     }
 
     @Override
@@ -46,29 +57,30 @@ public class ImageAdapter3 extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-    static class ViewHolder {
+    static class ViewHolder{
         ImageView iconImage;
         TextView categoryText;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageAdapter.ViewHolder holder;
+        ViewHolder holder;
         if (convertView == null) {
-            holder = new ImageAdapter.ViewHolder();
+            holder = new ViewHolder();
             convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
             holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
             holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
             convertView.setTag(holder);
         }
         else{
-            holder = (ImageAdapter.ViewHolder)convertView.getTag();
+                holder = (ViewHolder)convertView.getTag();
         }
         holder.iconImage.setPadding(3,3,3, 3);
-        holder.iconImage.setImageResource(contact[position]);
+        holder.iconImage.setImageResource(menu[position]);
         holder.categoryText.setText(name[position]);
+        //holder.categoryText.setText("call");
 
         return convertView;
+
     }
 }

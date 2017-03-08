@@ -9,34 +9,42 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by Nimmy on 26-01-2017.
+ * Created by Nimmy on 18-01-2017.
  */
 
-public class ImageAdapter8 extends BaseAdapter {
+public class ContactAdapter extends BaseAdapter {
+
     private Context con;
 
-    int status[] = new int[]{
-            R.drawable.create_alarm,
-            R.drawable.alarmlist,
+    int contact[] = new int[]{
+            R.drawable.con1,
+            R.drawable.create_con,
             R.drawable.back_arrow,
     };
+
     String name[] = new String[]{
-            "Create_alarm",
-            "Alarm_List",
+            "Contact_list",
+            "Create_contact",
             "Back",
+
     };
-    public ImageAdapter8(Context c) {
+    public ContactAdapter(Context c) {
         con = c;
     }
 
     @Override
     public int getCount() {
-        return status.length;
+        return contact.length;
     }
 
     @Override
     public Object getItem(int position) {
         return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
     }
     static class ViewHolder {
         ImageView iconImage;
@@ -45,25 +53,20 @@ public class ImageAdapter8 extends BaseAdapter {
 
 
     @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageAdapter.ViewHolder holder;
+        MainAdapter.ViewHolder holder;
         if (convertView == null) {
-            holder = new ImageAdapter.ViewHolder();
+            holder = new MainAdapter.ViewHolder();
             convertView = LayoutInflater.from(con).inflate(R.layout.single_row,parent, false);
             holder.iconImage = (ImageView)convertView.findViewById(R.id.main_image);
             holder.categoryText = (TextView) convertView.findViewById(R.id.main_TV);
             convertView.setTag(holder);
         }
         else{
-            holder = (ImageAdapter.ViewHolder)convertView.getTag();
+            holder = (MainAdapter.ViewHolder)convertView.getTag();
         }
         holder.iconImage.setPadding(3,3,3, 3);
-        holder.iconImage.setImageResource(status[position]);
+        holder.iconImage.setImageResource(contact[position]);
         holder.categoryText.setText(name[position]);
 
         return convertView;

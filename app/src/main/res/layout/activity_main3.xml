@@ -6,7 +6,7 @@
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/activity_main2"
+        android:id="@+id/activity_main3"
         android:gravity="center"
         android:columnWidth="100dp"
         android:numColumns="1"
@@ -17,6 +17,5 @@
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:stretchMode="columnWidth"/>
-
 
 </LinearLayout>
